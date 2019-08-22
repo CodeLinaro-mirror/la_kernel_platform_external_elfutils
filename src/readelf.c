@@ -7092,7 +7092,7 @@ attr_callback (Dwarf_Attribute *attrp, void *arg)
 		  || (form != DW_FORM_data4 && form != DW_FORM_data8)))
 	    {
 	      if (!cbargs->silent)
-		printf ("           %*s%-20s (%s) %" PRIxMAX "\n",
+		printf ("           %*s%-20s (%s) %" PRIuMAX "\n",
 			(int) (level * 2), "", dwarf_attr_name (attr),
 			dwarf_form_name (form), (uintmax_t) num);
 	      return DWARF_CB_OK;
@@ -9688,13 +9688,13 @@ print_debug_macinfo_section (Dwfl_Module *dwflmod __attribute__ ((unused)),
 	  /* Find the CU DIE for this file.  */
 	  size_t macoff = readp - (const unsigned char *) data->d_buf;
 	  const char *fname = "???";
-	  if (macoff >= cus[0].offset)
+	  if (macoff >= cus[0].offset && cus[0].offset != data->d_size)
 	    {
 	      while (macoff >= cus[1].offset && cus[1].offset != data->d_size)
 		++cus;
 
 	      if (cus[0].files == NULL
-		&& dwarf_getsrcfiles (&cus[0].die, &cus[0].files, NULL) != 0)
+		  && dwarf_getsrcfiles (&cus[0].die, &cus[0].files, NULL) != 0)
 		cus[0].files = (Dwarf_Files *) -1l;
 
 	      if (cus[0].files != (Dwarf_Files *) -1l)
