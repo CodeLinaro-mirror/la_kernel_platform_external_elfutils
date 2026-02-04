@@ -18,7 +18,7 @@ third_party {
   identifier {
     type: "Git"
     value: "git://sourceware.org/git/elfutils.git"
-    version: "24c98430921f17f398fe9ba9807d9d492cc01b70"
+    version: "853c2943b582ac65fda6c28eaea21a1595fbaecd"
     closest_version: "elfutils-0.193"
   }
 }
