@@ -136,7 +136,8 @@ cc_library {
     ],
     apex_available: [
         "//apex_available:platform",
-        "com.android.tethering", // For standalone bpf loader binary that depends on libbpf.
+        "com.android.tethering",
+        "com.android.uprobestats", // For standalone bpf loader binary that depends on libbpf.
     ],
     min_sdk_version: "apex_inherit",
 }
@@ -162,7 +163,8 @@ cc_library_headers {
     visibility: [":__subpackages__"],
     apex_available: [
         "//apex_available:platform",
-        "com.android.tethering", // For standalone bpf loader binary that depends on libbpf.
+        "com.android.tethering",
+        "com.android.uprobestats", // For standalone bpf loader binary that depends on libbpf.
     ],
     min_sdk_version: "apex_inherit",
 }
