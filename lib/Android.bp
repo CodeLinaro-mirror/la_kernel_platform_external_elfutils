@@ -22,5 +22,6 @@ cc_library_static {
     apex_available: [
         "//apex_available:platform",
         "com.android.tethering", // For standalone bpf loader binary that depends on libbpf.
+        "com.android.uprobestats",
     ],
 }
