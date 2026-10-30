@@ -75,6 +75,7 @@ cc_defaults {
         // to suppress the "pointer of type ‘void *’ used in arithmetic" warning
         "-Wno-pointer-arith",
         "-Wno-typedef-redefinition",
+        "-Wno-constant-conversion",
     ],
     header_libs: [
         "elfutils_headers",
